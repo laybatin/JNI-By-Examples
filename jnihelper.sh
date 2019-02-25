@@ -1,7 +1,7 @@
 #!/bin/bash
 
-NATIVE_ACCESSER_PATH='in/derros/jni/Utils.java'
-NATIVE_ACCESSER_CLASS_NAME='in.derros.jni.Utils'
+NATIVE_ACCESSER_PATH='in/derros/jni/Utilities.java'
+NATIVE_ACCESSER_CLASS_NAME='in.derros.jni.Utilities'
 PWD=`pwd`
 echo
 echo 'Java Native Interface Helper'
@@ -14,7 +14,7 @@ echo '--execute-java       Tests library'
 refresh_header () {
 
     cd java
-    javah $NATIVE_ACCESSER_PATH
+    javah $NATIVE_ACCESSER_CLASS_NAME
     cd ../
     echo "Generation finished."
 }
@@ -40,18 +40,17 @@ exej () {
 
 }
 
-
-if [ $1=='--refresh-header' ]
+if [ "$1" = "--refresh-header" ]
 then
     refresh_header
 fi
 
-if [ $1=='--build' ]
+if [ "$1" = "--build" ]
 then
     buildj
 fi
 
-if [ $1=='--execute-java' ]
+if [ "$1" = "--execute-java" ]
 then
     exej
 fi

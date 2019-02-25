@@ -9,6 +9,11 @@
 
 #include "java/in_derros_jni_Utilities.h"
 
+//
+//c header
+#include "libexample/include/hello.h"
+//
+
 /*
  * =================IMPLEMENTATION===============
  * Class:     in_derros_jni_Utilities
@@ -17,6 +22,7 @@
  */
 JNIEXPORT void JNICALL Java_in_derros_jni_Utilities_printMethod
         (JNIEnv *env, jobject obj) {
+    hello(42);
     std::cout << "Native method called. Printing garbage." << std::endl;
 }
 
